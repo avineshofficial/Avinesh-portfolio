@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Design Tokens (Tailwind v4 @theme) ─── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors - Neo Brutalist Palette */
+  --color-surface: #ffffff;
+  --color-surface-bright: #ffffff;
+  --color-surface-container: #ffffff;
+  --color-surface-container-high: #ffffff;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container-lowest: #FFE047; /* Yellow bottom accent */
+  --color-surface-container-highest: #ffffff;
+  --color-surface-dim: #ffffff;
+  --color-surface-tint: #FFE047;
+  --color-surface-variant: #ffffff;
+
+  --color-background: #FAF6EE;
+  --color-on-background: #000000;
+
+  --color-primary: #FFE047; /* Yellow */
+  --color-primary-container: #FF6B35; /* Orange */
+  --color-primary-fixed: #FFE047;
+  --color-primary-fixed-dim: #FFE047;
+  --color-on-primary: #000000;
+  --color-on-primary-container: #000000;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #000000;
+  --color-inverse-primary: #FFE047;
+
+  --color-secondary: #A78BFA; /* Purple */
+  --color-secondary-container: #38BDF8; /* Blue */
+  --color-secondary-fixed: #A78BFA;
+  --color-secondary-fixed-dim: #A78BFA;
+  --color-on-secondary: #000000;
+  --color-on-secondary-container: #000000;
+  --color-on-secondary-fixed: #000000;
+  --color-on-secondary-fixed-variant: #000000;
+
+  --color-tertiary: #00F5D4; /* Teal */
+  --color-tertiary-container: #A3E635; /* Green */
+  --color-tertiary-fixed: #00F5D4;
+  --color-tertiary-fixed-dim: #00F5D4;
+  --color-on-tertiary: #000000;
+  --color-on-tertiary-container: #000000;
+  --color-on-tertiary-fixed: #000000;
+  --color-on-tertiary-fixed-variant: #000000;
+
+  --color-error: #F43F5E; /* Pink/Rose */
+  --color-error-container: #F43F5E;
+  --color-on-error: #000000;
+  --color-on-error-container: #000000;
+
+  --color-on-surface: #000000;
+  --color-on-surface-variant: #2A2A2A;
+  --color-outline: #000000;
+  --color-outline-variant: #000000;
+  --color-inverse-surface: #000000;
+  --color-inverse-on-surface: #ffffff;
+
+  /* Fonts */
+  --font-geist: "Geist", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  --spacing-gutter: 24px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Keyframes ─── */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF6EE;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  color: #000000;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* ─── Material Symbols ─── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF6EE;
+  border-left: 3px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFE047;
+  border: 3px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B35;
+}
+
+/* ─── Neo-Brutalist Classes ─── */
+
+.brutal-card {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutal-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px #000000;
+}
+
+.brutal-card-flat {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.brutal-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF6B35; /* Orange */
+  color: #000000;
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.brutal-btn-primary:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px #000000;
+  background-color: #FFE047; /* Yellow */
+}
+
+.brutal-btn-primary:active {
+  transform: translate(0px, 0px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.brutal-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px 0px #000000;
+  transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.brutal-btn-secondary:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0px 0px #000000;
+  background-color: #00F5D4; /* Teal */
+}
+
+.brutal-btn-secondary:active {
+  transform: translate(0px, 0px);
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.brutal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #000000;
+  font-family: var(--font-jetbrains);
+  font-weight: 700;
+  border: 2px solid #000000;
+  padding: 4px 10px;
+  background-color: #ffffff;
+}
+
+.brutal-input {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  color: #000000;
+  padding: 12px 16px;
+  outline: none;
+  font-family: var(--font-inter);
+  box-shadow: 3px 3px 0px 0px #000000;
+  transition: all 0.15s ease;
+}
+
+.brutal-input:focus {
+  box-shadow: 6px 6px 0px 0px #000000;
+  transform: translate(-3px, -3px);
+  background-color: #ffffff;
+}
+
+/* ─── Infinite Marquee ─── */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  border-top: 4px solid #000000;
+  border-bottom: 4px solid #000000;
+  background-color: #FFE047;
+  padding: 12px 0;
+  user-select: none;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-item {
+  font-family: var(--font-jetbrains);
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000000;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
