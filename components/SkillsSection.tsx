@@ -109,7 +109,7 @@ export default function SkillsSection() {
   const rows = isDesktop ? 2 : 4;
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh] bg-transparent">
+    <section ref={sectionRef} id="skills" className="relative h-[300vh] bg-transparent">
       {/* Sticky Viewport Wrapper */}
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center items-center py-6 px-5 md:px-20 z-10">
         
@@ -127,15 +127,27 @@ export default function SkillsSection() {
         <div className="max-w-[1440px] mx-auto w-full relative z-10 flex flex-col items-center">
           {/* Header */}
           <div className="text-center mb-12 shrink-0">
-            <h2 className="font-[var(--font-geist)] text-[40px] leading-[44px] tracking-tight font-black md:text-[60px] md:leading-[64px] text-black uppercase mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 50, skewY: 4 }}
+              whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+              className="font-[var(--font-geist)] text-[40px] leading-[44px] tracking-tight font-black md:text-[60px] md:leading-[64px] text-black uppercase mb-4"
+            >
               Core{" "}
               <span className="bg-primary px-4 py-1.5 border-[3px] border-black inline-block rotate-[-1.5deg] shadow-[4px_4px_0px_0px_#000000]">
                 Capabilities
               </span>
-            </h2>
-            <p className="text-gray-800 font-[var(--font-inter)] text-[14px] md:text-[16px] max-w-2xl mx-auto uppercase tracking-wider font-extrabold">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30, skewY: 2 }}
+              whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1], delay: 0.1 }}
+              className="text-gray-800 font-[var(--font-inter)] text-[14px] md:text-[16px] max-w-2xl mx-auto uppercase tracking-wider font-extrabold"
+            >
               ✦ Scroll down to deal the capability cards ✦
-            </p>
+            </motion.p>
           </div>
 
           {/* Cards Frame */}

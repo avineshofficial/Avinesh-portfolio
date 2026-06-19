@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 export default function ContactSection() {
@@ -11,12 +12,18 @@ export default function ContactSection() {
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Form Block */}
               <div className="p-8 md:p-12">
-                <h2 className="font-[var(--font-geist)] text-[36px] md:text-[44px] leading-tight font-black uppercase text-black mb-6">
+                <motion.h2
+                  initial={{ opacity: 0, y: 50, skewY: 4 }}
+                  whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+                  className="font-[var(--font-geist)] text-[36px] md:text-[44px] leading-tight font-black uppercase text-black mb-6"
+                >
                   Let&apos;s{" "}
                   <span className="bg-[#FF6B35] px-3.5 py-1 border-[3px] border-black inline-block rotate-[2deg] shadow-[3px_3px_0px_0px_#000000] text-black">
                     Connect
                   </span>
-                </h2>
+                </motion.h2>
                 <p className="text-gray-800 font-[var(--font-inter)] text-[16px] md:text-[18px] leading-[26px] mb-8">
                   Have a project in mind or just want to chat about AI? Drop me
                   a message.

@@ -155,7 +155,7 @@ export default function ProjectsSection() {
   });
 
   return (
-    <section ref={targetRef} className="relative h-[300vh] bg-transparent">
+    <section ref={targetRef} id="projects" className="relative h-[300vh] bg-transparent">
       {/* Sticky corkboard container */}
       <div
         className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center py-6 select-none"
@@ -175,15 +175,27 @@ export default function ProjectsSection() {
             <div className="brutal-badge bg-[#FFE047] text-xs font-black px-2 py-0.5 border border-black rotate-[-2deg] mb-2 shadow-[2px_2px_0px_0px_#000]">
               CASE FILE: DECLASSIFIED
             </div>
-            <h2 className="font-[var(--font-geist)] text-[36px] md:text-[54px] font-black uppercase text-black leading-none">
+            <motion.h2
+              initial={{ opacity: 0, y: 50, skewY: 4 }}
+              whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+              className="font-[var(--font-geist)] text-[36px] md:text-[54px] font-black uppercase text-black leading-none"
+            >
               Selected{" "}
               <span className="bg-[#FF6B35] px-4 py-1.5 border-[3px] border-black inline-block rotate-[1.5deg] shadow-[4px_4px_0px_0px_#000000] text-black">
                 Work
               </span>
-            </h2>
-            <p className="text-gray-800 font-[var(--font-jetbrains)] text-[12px] md:text-[14px] mt-3 uppercase tracking-wider font-extrabold">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30, skewY: 2 }}
+              whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, ease: [0.215, 0.61, 0.355, 1], delay: 0.1 }}
+              className="text-gray-800 font-[var(--font-jetbrains)] text-[12px] md:text-[14px] mt-3 uppercase tracking-wider font-extrabold"
+            >
               ✦ Follow the connected strings to investigate ✦
-            </p>
+            </motion.p>
           </div>
           <a
             href="#"

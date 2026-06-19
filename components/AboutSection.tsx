@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
 const stats = [
@@ -40,9 +41,15 @@ export default function AboutSection() {
                     person
                   </span>
                 </div>
-                <h2 className="font-[var(--font-geist)] text-[32px] md:text-[36px] font-black uppercase tracking-tight text-black">
+                <motion.h2
+                  initial={{ opacity: 0, y: 50, skewY: 4 }}
+                  whileInView={{ opacity: 1, y: 0, skewY: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+                  className="font-[var(--font-geist)] text-[32px] md:text-[36px] font-black uppercase tracking-tight text-black"
+                >
                   About Me
-                </h2>
+                </motion.h2>
               </div>
 
               <p className="font-[var(--font-inter)] text-[16px] md:text-[18px] leading-[26px] md:leading-[28px] text-gray-800 mb-8">

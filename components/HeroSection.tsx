@@ -21,9 +21,9 @@ export default function HeroSection() {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+            initial={{ opacity: 0, y: 50, skewY: 4 }}
+            animate={{ opacity: 1, y: 0, skewY: 0 }}
+            transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1], delay: 0.1 }}
             className="font-[var(--font-geist)] text-[48px] leading-[48px] md:text-[84px] md:leading-[80px] font-black text-black tracking-tighter uppercase mb-6"
           >
             Hi, I&apos;m{" "}
